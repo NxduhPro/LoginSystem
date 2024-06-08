@@ -30,6 +30,7 @@ a:focus {
     border: none;
     border-radius: 0;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    z-index:1;
 }
 
 .navbar-btn {
@@ -153,7 +154,7 @@ a.article:hover {
 #content{
     padding: 20px;
     overflow-y: auto;
-    height: 100dvh;
+    height: calc(100dvh - 70px);
     background: linear-gradient(to left, #04879C, #0C3C78, #090030, #D04848);
 }
 footer {
