@@ -52,7 +52,7 @@ $mail->Port = 465;
 $mail->setFrom('neilysystems@gmail.com');
 $mail->addAddress($_POST["email"]);
 $mail->isHTML(true);
-$mail->Subject = "bananana"; 
+$mail->Subject = "You Have Registered an Account"; 
 $mail->Body = "You have signup using your email($email) with a userid($userid) at $date";
 
 $mail->send();
