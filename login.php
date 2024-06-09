@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['loggedin'] = true;
                 setcookie('loggedin', true, time() + (86400 * 30), "/"); // 86400 = 1 day
 
-                require 'phpmailer/src/Exception.php'; 
+require 'phpmailer/src/Exception.php'; 
 require 'phpmailer/src/PHPMailer.php'; 
 require 'phpmailer/src/SMTP.php';
 
