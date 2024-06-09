@@ -12,7 +12,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - Bootstrap Sidebar</title>
+  <title>THE GAME</title>
   <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 
@@ -54,11 +54,10 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         <!-- Sidebar  -->
         <nav id="sidebar" >
             <div class="sidebar-header">
-                <h3>Bootstrap Sidebar</h3>
+                <h3>PINOY WORDLE</h3>
             </div>
-
             <ul class="list-unstyled components">
-                <p>Dummy Heading</p>
+                <p id="nametag">Dummy Heading</p>
                 <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
@@ -74,7 +73,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                     </ul>
                 </li>
                 <li>
-                    <a href="#" id="logout">About</a>
+                    <a href="#" id="logout">logout</a>
                 </li>
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
@@ -94,7 +93,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                     <a href="#" id="page1">Portfolio</a>
                 </li>
                 <li>
-                    <a href="#" id="page2">Contact</a>
+                    <a href="#" id="page2">Game</a>
                 </li>
             </ul>
 
@@ -165,10 +164,10 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             <script>
             $(document).ready(function(){
         // Load initial content
-        
+        $('#nametag').html('<?php echo  $_SESSION['username']." (Points: )" ;?>');
         // Handle button clicks
         $('#page1').click(function(){
-                document.getElementById('GameContent').style.display = 'none';
+            document.getElementById('GameContent').style.display = 'none';
             $('#ContentLoader').load('page1.php');
         });
 
