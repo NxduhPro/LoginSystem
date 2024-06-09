@@ -36,11 +36,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($inputUsername == $username && $inputPassword == $password) {
                 $_SESSION['loggedin'] = true;
                 setcookie('loggedin', true, time() + (86400 * 30), "/"); // 86400 = 1 day
-            } else {
-                echo "Invalid credentials.";
-            }
 
-require 'phpmailer/src/Exception.php'; 
+                require 'phpmailer/src/Exception.php'; 
 require 'phpmailer/src/PHPMailer.php'; 
 require 'phpmailer/src/SMTP.php';
 
@@ -58,8 +55,10 @@ $mail->Port = 465;
 $mail->setFrom('neilysystems@gmail.com');
 $mail->addAddress($row['email']);
 $mail->isHTML(true);
-$mail->Subject = "bananana"; 
+$mail->Subject = "You recently login"; 
 $date = new DateTime();
+$timezone = new DateTimeZone('+08:00');
+$date->setTimezone($timezone);
 $date = $date->format('Y-m-d H:i:s');
 $mail->Body = "You have login at $date";
 
@@ -77,6 +76,11 @@ $mail->send();
     } else {
         echo "No user found with that username.";
     }
+
+
+            } else {
+                echo "Invalid credentials.";
+            }
 }
 
 $conn->close();
