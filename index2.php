@@ -18,15 +18,13 @@
 <script>
     $(document).ready(function(){
         // Load initial content
-        $('#content').load('page2.php');
-
+        $('#content').load('page1.php');
         // Handle button clicks
         $('#page1').click(function(){
             $('#content').load('page1.php');
         });
 
         $('#page2').click(function(){
-            $('#content').remove;
             $('#content').load('page2.php');
         });
     });

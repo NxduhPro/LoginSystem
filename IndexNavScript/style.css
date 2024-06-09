@@ -155,7 +155,7 @@ a.article:hover {
     padding: 20px;
     overflow-y: auto;
     height: calc(100dvh - 70px);
-    background: linear-gradient(to left, #04879C, #0C3C78, #090030, #D04848);
+    background: linear-gradient(to bottom, #edf2fb, #d7e3fc, #ccdbfd, #c1d3fe, #abc4ff);
 }
 footer {
     background-color: #333;
