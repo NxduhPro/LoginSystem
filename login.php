@@ -30,6 +30,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($password = $row['password']) {
             $_SESSION['username'] = $row['username'];
 
+            $inputUsername = $_POST['username'];
+            $inputPassword = $_POST['password'];
+        
+            if ($inputUsername == $username && $inputPassword == $password) {
+                $_SESSION['loggedin'] = true;
+                setcookie('loggedin', true, time() + (86400 * 30), "/"); // 86400 = 1 day
+            } else {
+                echo "Invalid credentials.";
+            }
+
 require 'phpmailer/src/Exception.php'; 
 require 'phpmailer/src/PHPMailer.php'; 
 require 'phpmailer/src/SMTP.php';
@@ -60,7 +70,7 @@ $mail->send();
 
 
 
-            header("Location: index4.php");
+            header("Location: index5.php");
         } else {
             echo "Invalid password.";
         }

@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+// Check if the user is not logged in
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    // Redirect to the login page
+    header('Location: index.php');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -64,7 +74,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#">About</a>
+                    <a href="#" id="logout">About</a>
                 </li>
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
@@ -165,6 +175,10 @@
         $('#page2').click(function(){
             document.getElementById('GameContent').style.display = 'block';
             document.getElementById('ContentLoader').innerHTML = '';
+        });
+
+        $('#logout').click(function(){
+            window.location.replace('logout.php');
         });
     });
             </script>

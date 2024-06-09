@@ -1,3 +1,16 @@
+<?php
+// check_login.php
+session_start();
+
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+    header('Location: index5.php');
+    exit;
+} elseif (isset($_COOKIE['loggedin']) && $_COOKIE['loggedin'] == true) {
+    $_SESSION['loggedin'] = true;
+    header('Location: index5.php');
+    exit;
+}
+?>
                         <html>
                             <head>
                                 <meta charset='utf-8'>
