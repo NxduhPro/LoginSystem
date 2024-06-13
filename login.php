@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $conn->real_escape_string($_POST['username']);
     $password = $_POST['password'];
 
-    $sql = "SELECT user_id, username, password, email FROM userlogs WHERE username = '$username'";
+    $sql = "SELECT user_id, username, password, email, score FROM userlogs WHERE username = '$username'";
     $result = $conn->query($sql);
     
     if ($result->num_rows > 0) {
@@ -29,6 +29,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($password = $row['password']) {
             $_SESSION['username'] = $row['username'];
+            $_SESSION['email'] = $row['email'];
+            $_SESSION['user_id'] = $row['user_id'];
+            $_SESSION['score'] = $row['score'];
+            
 
             $inputUsername = $_POST['username'];
             $inputPassword = $_POST['password'];

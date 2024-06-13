@@ -184,17 +184,32 @@ document.addEventListener("DOMContentLoaded", () => {
             message.innerHTML = `Congratulations! You guessed the word! <br>Meaning: ${words[targetWord]}`;
             guessInput.disabled = true;
             submitGuess.disabled = true;
+            UpdaterScore(targetWord.length)
         } else if (currentAttempt >= maxAttempts) {
-            message.innerHTML = `Game over! The word was: ${targetWord}. <br>Meaning: ${words[targetWord]}`;
+            scorepre= -1*(targetWord.length/2);
+            message.innerHTML = `Game over! The word was: ${targetWord}. Points deducted: ${scorepre} <br>Meaning: ${words[targetWord] }`;
             guessInput.disabled = true;
             submitGuess.disabled = true;
+            UpdaterScore(scorepre)
         } else {
             message.textContent = '';
         }
 
         guessInput.value = '';
     }
-
+    function UpdaterScore(newScore){
+    var xhr = new XMLHttpRequest();
+            xhr.open('POST', './update_score.php'); // Path to your server-side script
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    console.log('Score updated successfully');
+                } else {
+                    console.log('Failed to update score');
+                }
+            };
+            xhr.send('newScore=' + newScore);
+        }
     createBoard();
 
     submitGuess.addEventListener('click', handleGuess);

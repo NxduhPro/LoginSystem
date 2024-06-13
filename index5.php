@@ -7,6 +7,36 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header('Location: index.php');
     exit;
 }
+
+// Assuming you have already connected to your database
+
+// Step 1: Connect to the database
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "wordlepinoy";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Step 2: Retrieve the user's score based on their username
+$user_username = $_SESSION['username']; // This is the username of the user you want to retrieve the score for
+$sql = "SELECT score FROM userlogs WHERE username = '$user_username'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // Output data of each row
+    while($row = $result->fetch_assoc()) {
+        $user_score = $row["score"];
+    }
+}
+
+$conn->close();
+
 ?>
 <!DOCTYPE html>
 <html lang="en" >
@@ -68,7 +98,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                             <a href="#">Home 2</a>
                         </li>
                         <li>
-                            <a href="#">Home 3</a>
+                            <a href="#"><?php  echo  $_SESSION['user_id'] ?></a>
                         </li>
                     </ul>
                 </li>
@@ -164,7 +194,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             <script>
             $(document).ready(function(){
         // Load initial content
-        $('#nametag').html('<?php echo  $_SESSION['username']." (Points: )" ;?>');
+        $('#nametag').html('<?php echo  $_SESSION['username']." (Points: ".$user_score.")" ;?>');
         // Handle button clicks
         $('#page1').click(function(){
             document.getElementById('GameContent').style.display = 'none';
