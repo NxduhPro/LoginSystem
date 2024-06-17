@@ -32,7 +32,7 @@ CREATE TABLE `userlogs` (
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `score` long NOT NULL,
+  `score` bigint NOT NULL,
   `created_at` date NOT NULL,
   `updated_at` date NOT NULL,
   `latestlog_at` date NOT NULL
