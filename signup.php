@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // Execute the statement
     if ($stmt->execute()) {
-        echo "New record created successfully";
+echo "New record created successfully";
 require 'phpmailer/src/Exception.php'; 
 require 'phpmailer/src/PHPMailer.php'; 
 require 'phpmailer/src/SMTP.php';
@@ -56,9 +56,7 @@ $mail->Subject = "You Have Registered an Account";
 $mail->Body = "You have signup using your email($email) with a userid($userid) at $date";
 
 $mail->send();
-
-
-    } else {
+} else {
         if ($conn->errno == 1062) { // Duplicate entry
             echo "Error: The username or email is already in use.";
         } else {
@@ -68,6 +66,16 @@ $mail->send();
     
     $stmt->close();
 }
-
 $conn->close();
 ?>
+
+<html>
+<body>
+   <script> 
+      setTimeout(()=> {
+        window.location.href = "index.php"
+      }
+      ,5000);
+   </script>
+</body>
+</html>

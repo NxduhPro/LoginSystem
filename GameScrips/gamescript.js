@@ -181,13 +181,14 @@ document.addEventListener("DOMContentLoaded", () => {
         currentAttempt++;
 
         if (guess === targetWord.toLowerCase()) {
-            message.innerHTML = `Congratulations! You guessed the word! <br>Meaning: ${words[targetWord]}`;
+            message.innerHTML = `Congratulations! You guessed the word! <br>Meaning: ${words[targetWord]} <br>Reload the page for a new game`;
             guessInput.disabled = true;
             submitGuess.disabled = true;
+            submitGuess.text = true;
             UpdaterScore(targetWord.length)
         } else if (currentAttempt >= maxAttempts) {
             scorepre= -1*(targetWord.length/2);
-            message.innerHTML = `Game over! The word was: ${targetWord}. Points deducted: ${scorepre} <br>Meaning: ${words[targetWord] }`;
+            message.innerHTML = `Game over! The word was: ${targetWord}. Points deducted: ${scorepre} <br>Meaning: ${words[targetWord] } <br>Reload the page for a new game`;
             guessInput.disabled = true;
             submitGuess.disabled = true;
             UpdaterScore(scorepre)

@@ -72,20 +72,30 @@ $mail->send();
 
 
 
-
+            $error = "no error";
             header("Location: index5.php");
         } else {
             echo "Invalid password.";
         }
-    } else {
-        echo "No user found with that username.";
-    }
+        } else {
+            echo "No user found with that username.";
 
+        }
+        } else {
+            echo "Invalid credentials.";
 
-            } else {
-                echo "Invalid credentials.";
-            }
+        }
 }
 
 $conn->close();
 ?>
+<html>
+<body>
+   <script> 
+        setTimeout(()=> {
+        window.location.href = "index.php"
+      }
+      ,5000);
+   </script>
+</body>
+</html>

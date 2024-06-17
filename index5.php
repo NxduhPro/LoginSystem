@@ -41,9 +41,9 @@ $conn->close();
 <!DOCTYPE html>
 <html lang="en" >
 <head>
-  <meta charset="UTF-8">
-  <title>THE GAME</title>
-  <!-- Bootstrap CSS CDN -->
+    <meta charset="UTF-8">
+    <title>THE GAME</title>
+    <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 
     <!-- Font Awesome JS -->
@@ -51,7 +51,7 @@ $conn->close();
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-   
+
 <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <!-- Popper.JS -->
@@ -89,48 +89,32 @@ $conn->close();
             <ul class="list-unstyled components">
                 <p id="nametag">Dummy Heading</p>
                 <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Home 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 2</a>
-                        </li>
-                        <li>
-                            <a href="#"><?php  echo  $_SESSION['user_id'] ?></a>
-                        </li>
-                    </ul>
+                    <a href="#" id="page2">Start Game</a>
                 </li>
                 <li>
-                    <a href="#" id="logout">logout</a>
-                </li>
-                <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#">Page 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
-                        </li>
-                    </ul>
+
                 </li>
                 <li>
                     <a href="#" id="page1">Portfolio</a>
                 </li>
+
                 <li>
-                    <a href="#" id="page2">Game</a>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Coming Soon?</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="#">Bicolano Edition</a>
+                        </li>
+                        <li>
+                            <a href="#">Ilocano Edition</a>
+                        </li>
+                        <li>
+                            <a href="#">Visaya Edition</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
 
             <ul class="list-unstyled CTAs">
-                <li>
-                    <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
-                </li>
             </ul>
         </nav>
 
@@ -150,17 +134,8 @@ $conn->close();
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Page</a>
+                            <a href="#" id="logout" class="nav-link" href="#">Logout</a>
                             </li>
                         </ul>
                     </div>
@@ -194,7 +169,7 @@ $conn->close();
             <script>
             $(document).ready(function(){
         // Load initial content
-        $('#nametag').html('<?php echo  $_SESSION['username']." (Points: ".$user_score.")" ;?>');
+        $('#nametag').html('<?php echo  $_SESSION['username']." (Points: $user_score)" ;?>');
         // Handle button clicks
         $('#page1').click(function(){
             document.getElementById('GameContent').style.display = 'none';
@@ -218,7 +193,7 @@ $conn->close();
         </footer>
     </div>
 <!-- partial -->
-  <script  src="IndexNavScript/script.js"></script>
+<script  src="IndexNavScript/script.js"></script>
 
 </body>
 </html>
